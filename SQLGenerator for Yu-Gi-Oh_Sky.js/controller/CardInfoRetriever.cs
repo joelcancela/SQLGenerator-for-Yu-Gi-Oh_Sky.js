@@ -23,20 +23,28 @@ namespace SQLGenerator_for_Yu_Gi_Oh_Sky.js.controller
             card.Text = ((string)jsonDetailsData.GetValue("text")).Replace(@"'", @"\'");
             card.Card_type = (string)jsonDetailsData.GetValue("card_type");
             card.Family = (string)jsonDetailsData.GetValue("family");
-            card.Atk = (int)jsonDetailsData.GetValue("atk");
-            card.Def = (int)jsonDetailsData.GetValue("def");
-            card.Level = (int)jsonDetailsData.GetValue("level");
-            card.Property = (string)jsonDetailsData.GetValue("property");
-            string typesString = (string)jsonDetailsData.GetValue("type");
-            string[] types = typesString.Split(new string[] { " / " }, StringSplitOptions.None);
             try
             {
+                card.Atk = (int)jsonDetailsData.GetValue("atk");
+                card.Def = (int)jsonDetailsData.GetValue("def");
+                card.Level = (int)jsonDetailsData.GetValue("level");
+            }
+            catch (Exception e)
+            {
+
+            }
+            
+            card.Property = (string)jsonDetailsData.GetValue("property");
+            string typesString = (string)jsonDetailsData.GetValue("type");
+            try
+            {
+                string[] types = typesString.Split(new string[] { " / " }, StringSplitOptions.None);
                 card.Type0 = types[0];
                 card.Type1 = types[1];
                 card.Type2 = types[2];
                 card.Type3 = types[3];
             }
-            catch (IndexOutOfRangeException e)
+            catch (Exception e)
             {
 
             }

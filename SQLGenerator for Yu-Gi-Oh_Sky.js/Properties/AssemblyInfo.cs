@@ -8,12 +8,12 @@ using System.Windows;
 // l'ensemble d'attributs suivant. Changez les valeurs de ces attributs pour modifier les informations
 // associées à un assembly.
 [assembly: AssemblyTitle("SQLGenerator for Yu-Gi-Oh_Sky.js")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("SQL Insert requests generator for Yu-Gi-Oh_Sky.js database.")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("Joël Cancela Vaz")]
 [assembly: AssemblyProduct("SQLGenerator for Yu-Gi-Oh_Sky.js")]
 [assembly: AssemblyCopyright("Copyright ©  2018")]
-[assembly: AssemblyTrademark("")]
+[assembly: AssemblyTrademark("SkyNet Labs")]
 [assembly: AssemblyCulture("")]
 
 // L'affectation de la valeur false à ComVisible rend les types invisibles dans cet assembly
