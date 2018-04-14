@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.27130.2027
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SQLGenerator for Yu-Gi-Oh_Sky.js", "SQLGenerator for Yu-Gi-Oh_Sky.js\SQLGenerator for Yu-Gi-Oh_Sky.js.csproj", "{441EBE16-9322-4770-8AFE-4D7ECED41C9E}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "SetupForSQLGenerator", "SetupForSQLGenerator\SetupForSQLGenerator.vdproj", "{7E4E7AB1-CF6F-40DB-9D24-E465CD3EBACA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,8 @@ Global
 		{441EBE16-9322-4770-8AFE-4D7ECED41C9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{441EBE16-9322-4770-8AFE-4D7ECED41C9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{441EBE16-9322-4770-8AFE-4D7ECED41C9E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E4E7AB1-CF6F-40DB-9D24-E465CD3EBACA}.Debug|Any CPU.ActiveCfg = Debug
+		{7E4E7AB1-CF6F-40DB-9D24-E465CD3EBACA}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
