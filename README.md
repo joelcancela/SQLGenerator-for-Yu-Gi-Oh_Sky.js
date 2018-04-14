@@ -1,6 +1,6 @@
 # SQLGenerator for Yu-Gi-Oh_Sky.js
 
-Generates SQL Insert requests for Yu-Gi-Oh_Sky.js database.
+Generates SQL Insert requests for a Yu-Gi-Oh_Sky.js database.
 
 ## Screenshots
 
