@@ -12,7 +12,7 @@ namespace SQLGenerator_for_Yu_Gi_Oh_Sky.js.controller
 {
     class CardInfoRetriever
     {
-        private string card_name_fr_URL = "https://www.joelcancela.fr/services/yugioh_sky.js/getCardFrenchName/?card_name=";
+        private string card_name_fr_URL = "https://api.joelcancela.fr/yugioh_sky.js/cardFrenchName?card_name=";
         private string card_details_URL = "http://yugiohprices.com/api/card_data/";
         internal void fillCardInfo(Card card)
         {
