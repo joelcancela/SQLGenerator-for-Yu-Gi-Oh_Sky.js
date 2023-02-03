@@ -13,31 +13,42 @@ namespace SQLGenerator_for_Yu_Gi_Oh_Sky.js.controller
         private List<Card> cards = new List<Card>();
         private CardInfoRetriever cardInfoRetriever = new CardInfoRetriever();
 
-        public string getRequests(string input)
+        public Task<string> getRequests(string input)
         {
-            string request = "INSERT INTO `CARDS` (`name_fr`, `name`, `card_type`, `quantity`, `family`, `atk`, `def`, `level`, `text`, `property`, `type/0`, `type/1`, `type/2`, `type/3`, `deck/0`, `deck/1`, `deck/2`) VALUES ";
-            cards.Clear();
-            using (StringReader reader = new StringReader(input))
+            return Task.Run(() =>
             {
-                string line;
-                while ((line = reader.ReadLine()) != null)
+                try
                 {
-                    createCard(line.Split(':'));
+                    string request = "INSERT INTO `CARDS` (`name_fr`, `name`, `card_type`, `quantity`, `family`, `atk`, `def`, `level`, `text`, `property`, `type/0`, `type/1`, `type/2`, `type/3`, `deck/0`, `deck/1`, `deck/2`) VALUES ";
+                    cards.Clear();
+                    cardInfoRetriever = new CardInfoRetriever();
+                    using (StringReader reader = new StringReader(input))
+                    {
+                        string line;
+                        while ((line = reader.ReadLine()) != null)
+                        {
+                            createCard(line.Split(':'));
+                        }
+                        for (int i = 0; i < cards.Count; i++)
+                        {
+                            request += cards[i].ToString();
+                            if (i == cards.Count - 1)
+                            {
+                                request += ";";
+                            }
+                            else
+                            {
+                                request += ",";
+                            }
+                        }
+                    }
+                    return request;
                 }
-                for (int i = 0; i < cards.Count; i++)
+                catch(Exception)
                 {
-                    request += cards[i].ToString();
-                    if(i == cards.Count-1)
-                    {
-                        request += ";";
-                    }
-                    else
-                    {
-                        request += ",";
-                    }
+                    return "Erreur lors de la récupération des détails des cartes, vérifiez votre saisie.";
                 }
-            }
-            return request;
+            });
         }
 
         private void createCard(string[] input)

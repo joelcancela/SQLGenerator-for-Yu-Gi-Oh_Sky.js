@@ -23,32 +23,16 @@ namespace SQLGenerator_for_Yu_Gi_Oh_Sky.js.controller
             card.Text = ((string)jsonDetailsData.GetValue("text")).Replace(@"'", @"\'");
             card.Card_type = (string)jsonDetailsData.GetValue("card_type");
             card.Family = (string)jsonDetailsData.GetValue("family");
-            try
-            {
-                card.Atk = (int)jsonDetailsData.GetValue("atk");
-                card.Def = (int)jsonDetailsData.GetValue("def");
-                card.Level = (int)jsonDetailsData.GetValue("level");
-            }
-            catch (Exception e)
-            {
-
-            }
-            
+            card.Atk = (int)jsonDetailsData.GetValue("atk");
+            card.Def = (int)jsonDetailsData.GetValue("def");
+            card.Level = (int)jsonDetailsData.GetValue("level");
             card.Property = (string)jsonDetailsData.GetValue("property");
             string typesString = (string)jsonDetailsData.GetValue("type");
-            try
+            string[] types = typesString.Split(new string[] { " / " }, StringSplitOptions.None);
+            for(int i=0; i<types.Length; i++)
             {
-                string[] types = typesString.Split(new string[] { " / " }, StringSplitOptions.None);
-                card.Type0 = types[0];
-                card.Type1 = types[1];
-                card.Type2 = types[2];
-                card.Type3 = types[3];
+                card.Types[i] = types[i];
             }
-            catch (Exception e)
-            {
-
-            }
-
             card.Name_fr = getAPIResponse(card_name_fr_URL, card).Replace(@"'", @"\'");
         }
 

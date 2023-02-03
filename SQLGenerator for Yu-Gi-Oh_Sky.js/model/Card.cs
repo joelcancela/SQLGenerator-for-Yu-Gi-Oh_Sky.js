@@ -18,10 +18,7 @@ namespace SQLGenerator_for_Yu_Gi_Oh_Sky.js.model
         private int level;
         private string text;
         private string property;
-        private string type0;
-        private string type1;
-        private string type2;
-        private string type3;
+        private string[] types = { null, null, null, null };
         private string deck0;
         private string deck1;
         private string deck2;
@@ -41,18 +38,15 @@ namespace SQLGenerator_for_Yu_Gi_Oh_Sky.js.model
         public int Def { get => def; set => def = value; }
         public int Level { get => level; set => level = value; }
         public string Text { get => text; set => text = value; }
+        public string[] Types { get => types; set => types = value; }
         public string Property { get => property; set => property = value; }
-        public string Type0 { get => type0; set => type0 = value; }
-        public string Type1 { get => type1; set => type1 = value; }
-        public string Type2 { get => type2; set => type2 = value; }
-        public string Type3 { get => type3; set => type3 = value; }
         public string Deck0 { get => deck0; set => deck0 = value; }
         public string Deck1 { get => deck1; set => deck1 = value; }
         public string Deck2 { get => deck2; set => deck2 = value; }
 
         public override string ToString()
         {
-            return "(" + "'" + name_fr + "'," + "'" + name + "'," + "'" + card_type + "'," + "'" + quantity + "'," + "'" + family + "'," + "'" + atk + "'," + "'" + def + "'," + "'" + level + "'," + "'" + text + "'," + "'" + property + "'," + "'" + type0 + "'," + "'" + type1 + "'," + "'" + type2 + "'," + "'" + type3 + "'," + "'" + deck0 + "'," + "'" + deck1 + "'," + "'" + deck2 + "')";
+            return "(" + "'" + name_fr + "'," + "'" + name + "'," + "'" + card_type + "'," + "'" + quantity + "'," + "'" + family + "'," + "'" + atk + "'," + "'" + def + "'," + "'" + level + "'," + "'" + text + "'," + "'" + property + "'," + "'" + types[0] + "'," + "'" + types[1] + "'," + "'" + types[2] + "'," + "'" + types[3] + "'," + "'" + deck0 + "'," + "'" + deck1 + "'," + "'" + deck2 + "')";
         }
     }
 }
