@@ -21,7 +21,7 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_6A1A86DFA7E786CB236ED7609D744D14"
+        "MsmKey" = "8:_49BA1B2574379B2E01F07438370C8493"
         "OwnerKey" = "8:_26B9DC8955CC42A1AD78F02DBE666CD8"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -46,7 +46,7 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_6A1A86DFA7E786CB236ED7609D744D14"
+        "OwnerKey" = "8:_49BA1B2574379B2E01F07438370C8493"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -80,6 +80,14 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.7.2"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.7.2 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.7.2"
+                    }
+                }
             }
         }
         "Release"
@@ -104,6 +112,14 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.7.2"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.7.2 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.7.2"
+                    }
+                }
             }
         }
     }
@@ -134,14 +150,14 @@
         }
         "File"
         {
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_6A1A86DFA7E786CB236ED7609D744D14"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_49BA1B2574379B2E01F07438370C8493"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
             "AssemblyAsmDisplayName" = "8:Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_6A1A86DFA7E786CB236ED7609D744D14"
+                    "_49BA1B2574379B2E01F07438370C8493"
                     {
                     "Name" = "8:Newtonsoft.Json.dll"
                     "Attributes" = "3:512"
@@ -284,12 +300,12 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:SQLGenerator for Yu-Gi-Oh_Sky.js"
         "ProductCode" = "8:{00177C34-0C20-43A4-9FBC-340BD3333C5E}"
-        "PackageCode" = "8:{E527E1B9-062F-444F-B414-FB168ED790AB}"
+        "PackageCode" = "8:{BEC2BA97-D995-49DB-AFF4-2D1A99896086}"
         "UpgradeCode" = "8:{C6B3EBEB-6991-4615-BF99-6E6E8322C281}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
-        "RemovePreviousVersions" = "11:FALSE"
-        "DetectNewerInstalledVersion" = "11:TRUE"
+        "RemovePreviousVersions" = "11:TRUE"
+        "DetectNewerInstalledVersion" = "11:FALSE"
         "InstallAllUsers" = "11:TRUE"
         "ProductVersion" = "8:1.0.0"
         "Manufacturer" = "8:SkyNetLabs"
