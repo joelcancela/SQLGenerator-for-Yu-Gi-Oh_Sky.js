@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Net;
-using System.Text;
-using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
 using SQLGenerator_for_Yu_Gi_Oh_Sky.js.model;
 
@@ -16,35 +12,70 @@ namespace SQLGenerator_for_Yu_Gi_Oh_Sky.js.controller
         private string card_details_URL = "http://yugiohprices.com/api/card_data/";
         internal void fillCardInfo(Card card)
         {
-            string cardDetailsJSON = getAPIResponse(card_details_URL, card);
+            string cardDetailsJSON = getAPIResponse(card_details_URL, card, false);
+            if(cardDetailsJSON == null)
+            {
+                return;
+            }
             JObject jsonDetails = JObject.Parse(cardDetailsJSON);
             JObject jsonDetailsData = (JObject)jsonDetails.GetValue("data");
             card.Name = ((string)jsonDetailsData.GetValue("name")).Replace(@"'", @"\'");
             card.Text = ((string)jsonDetailsData.GetValue("text")).Replace(@"'", @"\'");
             card.Card_type = (string)jsonDetailsData.GetValue("card_type");
             card.Family = (string)jsonDetailsData.GetValue("family");
-            card.Atk = (int)jsonDetailsData.GetValue("atk");
-            card.Def = (int)jsonDetailsData.GetValue("def");
-            card.Level = (int)jsonDetailsData.GetValue("level");
-            card.Property = (string)jsonDetailsData.GetValue("property");
-            string typesString = (string)jsonDetailsData.GetValue("type");
-            string[] types = typesString.Split(new string[] { " / " }, StringSplitOptions.None);
-            for(int i=0; i<types.Length; i++)
+            JToken atk = jsonDetailsData.GetValue("atk");
+            if(atk.Type != JTokenType.Null)
             {
-                card.Types[i] = types[i];
+                card.Atk = (int)atk;
             }
-            card.Name_fr = getAPIResponse(card_name_fr_URL, card).Replace(@"'", @"\'");
+            JToken def = jsonDetailsData.GetValue("def");
+            if (def.Type != JTokenType.Null)
+            {
+                card.Def = (int)def;
+            }
+            JToken level = jsonDetailsData.GetValue("level");
+            if (level.Type != JTokenType.Null)
+            {
+                card.Level = (int)level;
+            }
+            card.Property = (string)jsonDetailsData.GetValue("property");
+            JToken type = jsonDetailsData.GetValue("type");
+            if (type.Type != JTokenType.Null)
+            {
+                string typesString = (string)type;
+                string[] types = typesString.Split(new string[] { " / " }, StringSplitOptions.None);
+                for (int i = 0; i < types.Length; i++)
+                {
+                    card.Types[i] = types[i];
+                }
+            }
+            string cardNameFrResponse = getAPIResponse(card_name_fr_URL, card, true);
+            if (cardNameFrResponse != null)
+            {
+                card.Name_fr = cardNameFrResponse.Replace(@"'", @"\'");
+            }
         }
 
-        private string getAPIResponse(string URL, Card card)
+        private string getAPIResponse(string URL, Card card, bool isTranslationCall)
         {
             WebRequest request = WebRequest.Create(URL + card.Name);
-            WebResponse response = request.GetResponse();
-            Stream dataStream = response.GetResponseStream();
-            StreamReader reader = new StreamReader(dataStream);
-            string responseFromServer = reader.ReadToEnd();
-            reader.Close();
-            response.Close();
+            string responseFromServer = null;
+            try
+            {
+                WebResponse response = request.GetResponse();
+                Stream dataStream = response.GetResponseStream();
+                StreamReader reader = new StreamReader(dataStream);
+                responseFromServer = reader.ReadToEnd();
+                reader.Close();
+                response.Close();
+            }
+            catch (Exception)
+            {
+                if (isTranslationCall)
+                {
+                    responseFromServer = card.Name;
+                }
+            }
             return responseFromServer;
         }
     }

@@ -10,6 +10,7 @@
         <TextBox x:Name="cardsTextBox" Margin="10,10,0,0" TextWrapping="Wrap" MouseLeave="cardsTextBox_MouseLeave" AcceptsReturn="True" HorizontalAlignment="Left" Width="573" Height="119" VerticalAlignment="Top" GotMouseCapture="cardsTextBox_GotMouseCapture"/>
         <Button x:Name="requestButton" Content="Générer requête" HorizontalAlignment="Left" Margin="243,146,0,0" VerticalAlignment="Top" Width="92" Click="requestButton_Click"/>
         <TextBox x:Name="requestsTextBox" HorizontalAlignment="Left" Height="127" Margin="10,182,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="573" IsReadOnly="True"/>
+        <CheckBox x:Name="useStoredProcCheckbox" Content="Use stored procedure" HorizontalAlignment="Left" Margin="426,147,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.328,-0.267"/>
 
     </Grid>
 </Window>

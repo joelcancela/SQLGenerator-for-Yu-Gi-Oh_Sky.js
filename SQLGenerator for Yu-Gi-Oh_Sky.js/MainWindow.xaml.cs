@@ -1,5 +1,4 @@
-﻿using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
 using SQLGenerator_for_Yu_Gi_Oh_Sky.js.controller;
@@ -47,7 +46,7 @@ namespace SQLGenerator_for_Yu_Gi_Oh_Sky.js
         private async void requestButton_Click(object sender, RoutedEventArgs e)
         {
             requestsTextBox.Text = "Récupération des détails des cartes...";
-            requestsTextBox.Text = await controller.getRequests(cardsTextBox.Text);
+            requestsTextBox.Text = await controller.getRequests(cardsTextBox.Text, useStoredProcCheckbox.IsChecked ?? false);
         }
     }
 }

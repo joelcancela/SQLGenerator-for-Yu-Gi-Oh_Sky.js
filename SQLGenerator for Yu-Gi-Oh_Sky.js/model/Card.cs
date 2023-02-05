@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace SQLGenerator_for_Yu_Gi_Oh_Sky.js.model
+﻿namespace SQLGenerator_for_Yu_Gi_Oh_Sky.js.model
 {
     class Card
     {
